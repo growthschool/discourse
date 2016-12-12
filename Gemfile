@@ -151,6 +151,11 @@ group :development do
   gem 'binding_of_caller'
   gem 'annotate'
   gem 'foreman', require: false
+
+  gem 'capistrano', '~> 3.4'
+  gem 'capistrano-rvm'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
 end
 
 # this is an optional gem, it provides a high performance replacement

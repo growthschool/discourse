@@ -38,6 +38,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    airbrussh (1.1.0)
+      sshkit (>= 1.6.1, != 1.7.0)
     annotate (2.7.1)
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 12.0)
@@ -66,6 +68,24 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.10.0)
     byebug (9.0.6)
+    capistrano (3.6.1)
+      airbrussh (>= 1.0.0)
+      capistrano-harrow
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (1.1.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-harrow (0.5.3)
+    capistrano-passenger (0.2.0)
+      capistrano (~> 3.0)
+    capistrano-rails (1.1.7)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
     certified (1.0.0)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
@@ -171,6 +191,9 @@ GEM
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     mustache (1.0.3)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.2.0)
     netrc (0.11.0)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -373,6 +396,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sshkit (1.11.2)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     stackprof (0.2.10)
     thin (1.7.0)
       daemons (~> 1.0, >= 1.0.9)
@@ -408,6 +434,10 @@ DEPENDENCIES
   binding_of_caller
   bullet
   byebug
+  capistrano (~> 3.4)
+  capistrano-passenger
+  capistrano-rails
+  capistrano-rvm
   certified
   discourse-qunit-rails
   discourse_fastimage (= 2.0.3)
