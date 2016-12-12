@@ -36,6 +36,11 @@ profile:
   host_names:
     - "localhost"
 
+production:
+  <<: *default
+  database: discourse_production
+  username: postgres
+  password: postgres
 # You may be surprised production is not here, it is sourced from application.rb using a monkey patch
 # This is done for 2 reasons
 #
