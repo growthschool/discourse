@@ -1,9 +1,9 @@
-source 'https://rubygems.org'
+source 'https://gems.ruby-china.org'
 # if there is a super emergency and rubygems is playing up, try
-#source 'http://production.cf.rubygems.org'
+# source 'http://production.cf.rubygems.org'
 
 def rails_master?
-  ENV["RAILS_MASTER"] == '1'
+  ENV['RAILS_MASTER'] == '1'
 end
 
 if rails_master?
@@ -38,7 +38,7 @@ gem 'mail'
 gem 'mime-types', require: 'mime/types/columnar'
 
 gem 'hiredis'
-gem 'redis', require:  ["redis", "redis/connection/hiredis"]
+gem 'redis', require: ['redis', 'redis/connection/hiredis']
 gem 'redis-namespace'
 
 gem 'active_model_serializers', '~> 0.8.3'
@@ -93,7 +93,6 @@ gem 'pg'
 gem 'pry-rails', require: false
 gem 'r2', '~> 0.2.5', require: false
 gem 'rake'
-
 
 gem 'rest-client'
 gem 'rinku'
@@ -157,7 +156,7 @@ end
 # this is an optional gem, it provides a high performance replacement
 # to String#blank? a method that is called quite frequently in current
 # ActiveRecord, this may change in the future
-gem 'fast_blank' #, github: "SamSaffron/fast_blank"
+gem 'fast_blank' # , github: "SamSaffron/fast_blank"
 
 # this provides a very efficient lru cache
 gem 'lru_redux'
@@ -189,12 +188,12 @@ begin
   gem 'memory_profiler', require: false, platform: [:mri_21, :mri_22, :mri_23]
 rescue Bundler::GemfileError
   begin
-    STDERR.puts "You are running an old version of bundler, please upgrade bundler ASAP, if you are using Discourse docker, rebuild your container."
+    STDERR.puts 'You are running an old version of bundler, please upgrade bundler ASAP, if you are using Discourse docker, rebuild your container.'
     gem 'stackprof', require: false, platform: [:mri_21, :mri_22]
     gem 'memory_profiler', require: false, platform: [:mri_21, :mri_22]
   rescue Bundler::GemfileError
-     gem 'stackprof', require: false, platform: [:mri_21]
-     gem 'memory_profiler', require: false, platform: [:mri_21]
+    gem 'stackprof', require: false, platform: [:mri_21]
+    gem 'memory_profiler', require: false, platform: [:mri_21]
   end
 end
 
