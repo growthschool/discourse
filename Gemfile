@@ -101,6 +101,7 @@ gem 'sass'
 gem 'sass-rails'
 gem 'sidekiq'
 gem 'sidekiq-statistic'
+gem 'capistrano-sidekiq', group: :development
 
 # for sidekiq web
 gem 'sinatra', require: false

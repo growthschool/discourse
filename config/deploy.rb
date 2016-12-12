@@ -1,14 +1,18 @@
 # config valid only for current version of Capistrano
 lock '3.6.1'
 
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'quanzhan'
+set :repo_url, 'git@github.com:growthschool/discourse.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
+set :branch, 'develop'
+
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, '/var/www/my_app_name'
+
+set :deploy_to, '/home/apps/discourse'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -19,6 +23,8 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 # You can configure the Airbrussh format using :format_options.
 # These are the defaults.
 # set :format_options, command_output: true, log_file: 'log/capistrano.log', color: :auto, truncate: :auto
+
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
 # Default value for :pty is false
 # set :pty, true
@@ -34,3 +40,10 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+
+set :passenger_restart_with_touch, true
+
+set :pty, false
+
+set :slackistrano, channel: '#bj-team',
+                   webhook: 'https://hooks.slack.com/services/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'
